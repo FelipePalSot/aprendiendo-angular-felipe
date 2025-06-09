@@ -1,0 +1,43 @@
+<br>
+<hr>
+<p>{{titulo}}</p>
+
+<p>
+    Elige el color:
+    <input type="color" [(ngModel)]="color" />
+</p>
+
+<ul>
+    @for (pelicula of peliculas; track pelicula.id; let indice = $index){
+        <li>{{pelicula.titulo}} - 
+            <span [ngStyle]="{'background-color' : color}">
+                {{pelicula.genero}}
+            </span> - 
+            {{pelicula.plataforma}}</li>
+            <button (click) ="borrarPeli(indice)">Borrar</button>
+    }
+</ul>
+
+<h1>Formulario y two way data binding en Angular</h1>
+
+<input type="text" [(ngModel)] = "mi_pelicula" 
+                    (focus)="haciendoFoco()" 
+                    (blur)="saliendoDelFoco()"
+                    (keyup)="pulsandoTeclas($event)"
+                    />
+<button (click)="showPelicula()">Mostrar Pelicula</button>
+<button (click)="addPelicula()">Añadir Pelicula</button>
+
+<p>
+    Mi pelicula es:
+    <strong>{{mi_pelicula}}</strong>   
+</p>
+
+<h3>Listado de pelis simples:</h3>
+
+<ul>
+    @for (pelicula of pelisSinDatos; track pelicula){
+        <li>{{pelicula}}</li>
+    }
+</ul>
+

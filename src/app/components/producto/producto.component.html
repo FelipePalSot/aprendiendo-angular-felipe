@@ -1,0 +1,36 @@
+
+        <h1>{{nombre}}</h1>
+        <p>Mi producto es un ordenador</p>
+        <p>{{descripcion}}</p>
+        <p>De marca {{marca}}</p>
+        <strong>{{precio}}$</strong>
+        <br>
+        <br>
+        
+
+        @if(nombre == "PC PORTATIL 1" ){
+                <button (click)="cambiarNombre('ASUS 30A')">Poner el nombre de ASUS 30A</button>
+        } @else {
+                <button (click)="cambiarNombre('PC PORTATIL 1')">Poner el nombre de PC PORTATIL 1</button>
+        }
+        <br>
+        <br>
+
+        @if(mostrar_peliculas == true ){
+                <button (click)="ocultarPeliculas(false)">Ocultar componente de peliculas</button>
+        } @else {
+                <button (click)="ocultarPeliculas(true)">Cambiar componente de peliculas</button>
+        }
+
+        
+        <br>
+        
+        
+
+        @if(mostrar_peliculas == true){
+
+                  <app-pelicula></app-pelicula>
+
+        }
+      
+       

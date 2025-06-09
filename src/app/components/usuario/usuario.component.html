@@ -1,0 +1,87 @@
+
+<h1>Plantillas, templates o vistas en ANGULAR</h1>
+<p>{{web}}</p>
+
+<a [href]="web" 
+    [class.existe]="redirigir"
+    target="_blank">Ir a mi web</a>
+
+    <h2>Estructuras para control de flujo</h2>
+
+    @if (redirigir == true){
+        <p>El enlace a {{web}} es correcto</p>
+    }@else{
+        <p>El enlace no va funcionar !!</p>
+    }
+
+    <button (click)="cambioRedireccion()">Modificar enlace</button>
+
+    <h3>Marcas de padel</h3>
+
+    <ul>
+        @for (marca of marcasPadel; track 1){
+            <li>{{marca}}</li>
+        } 
+    </ul>
+
+    <ul>
+        @for (country of objetosPaises; track country.id;
+                let indice = $index, totalElementos = $count,
+                esPar=$even, esImpar=$odd){
+            <li>{{country.name}} | {{indice}}</li>
+        }@empty {
+            <li>Lista Vacia</li>
+        }
+    </ul>
+
+    <!-- @if(usuario.rol == "admin"){
+        <app-ventas></app-ventas>
+    } -->
+
+    @switch (usuario.rol) {
+        @case ("admin"){
+            <app-ventas></app-ventas>
+        }
+
+        @case ("user") {
+            <p>Eres un usuario normal</p>
+        }
+
+        @default {
+            <p>Eres un usuario invitado</p>
+        }
+    }
+
+    <h3>M&aacute;s cosas de las plantillas</h3>
+
+    <ng-container>
+        <h4>Esto est&aacute; en un contenedor de angular</h4>
+    </ng-container>
+
+    @let pais = "España";
+
+    @let saludo = "Saludos desde "+pais;
+
+    {{pais}}
+    <br>
+    {{saludo}}
+
+
+
+  <!--@defer{
+    <mi-producto></mi-producto>
+    } @placeholder {
+        <h1>Se est&aacute; cargando el componente de producto</h1>
+    }
+--> 
+ <br>
+<br>
+{{"El cielo esta enladrillado quien lo desenladrillara" | cambiaLetras: true}}
+<br>
+<br>
+{{web | uppercase}}
+<br>
+<br>
+{{fecha | date: "dd/MM/yyyy"}}
+
+

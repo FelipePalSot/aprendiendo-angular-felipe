@@ -1,0 +1,26 @@
+<h1>Peticion HTTP por post</h1>
+
+<button (click)="guardarUsuario()">Crear usuario de prueba</button>
+
+<h1>Buscar usuario individual: </h1>
+
+<input type="text" [(ngModel)]="userId" (keyup)="buscarUsuario()"/>{{userId}}
+
+<p>Datos del usuarios</p>
+<p>{{usuarioIndividual?.first_name}}{{usuarioIndividual?.last_name}}</p>
+<p><img src="{{usuarioIndividual?.avatar}}" alt=""></p>
+
+<br>
+<hr>
+
+<ul>
+    @for ( usuario of listadoUsuarios?.data; track usuario.id){
+        <li>
+            {{usuario.first_name + " " + usuario.last_name}}
+
+            <img [src]="usuario.avatar" />
+        </li>
+    }
+    
+
+</ul>

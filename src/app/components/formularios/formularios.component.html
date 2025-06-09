@@ -1,0 +1,35 @@
+<h1>Formularios en Angular</h1>
+<p>Como trabajar con formularios sencillos en angular</p>
+
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    <p>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" 
+        required minlength="3" maxlength="40"/>
+    </p>
+
+    <p>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" [(ngModel)]="email" 
+        required email/>
+    </p>
+
+    <p>
+        <label for="edad">Edad:</label><br>
+        <input type="number" id="edad" name="edad" [(ngModel)]="edad" 
+         min="18" max="100"/>
+    </p>
+
+    <p>
+        <label for="password">Nombre:</label><br>
+        <input type="password" id="password" name="password" [(ngModel)]="password" 
+        required minlength="7"/>
+    </p>
+
+    <button type="submit" [disabled]="!form.valid">Enviar</button>
+</form>
+
+<hr>
+
+<p>Nombre: {{nombre}}</p>
+<p>Email: {{email}}</p>
