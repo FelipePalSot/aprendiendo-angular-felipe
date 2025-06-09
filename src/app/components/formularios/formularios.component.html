@@ -5,19 +5,53 @@
     <p>
         <label for="nombre">Nombre:</label><br>
         <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" 
-        required minlength="3" maxlength="40"/>
+        required minlength="3" maxlength="40"
+        #nombreField="ngModel"/>
+
+        @if(nombreField.invalid && nombreField.touched){
+            <div class="invalido">
+                El nombre es incorrecto, hazlo bien.
+
+                @if(nombreField.errors?.['required']){
+                    <span>Rellena el nombre</span>
+                }
+
+                @if(nombreField.errors?.['minlenth']){
+                    <span>Tu nombre es muy corto</span>
+                }
+
+                @if(nombreField.errors?.['maxlength']){
+                    <span>Tu nombre es muy largo</span>
+                }
+            </div>
+        }
+
     </p>
 
     <p>
         <label for="email">Email:</label><br>
         <input type="text" id="email" name="email" [(ngModel)]="email" 
-        required email/>
+        required email #emailField="ngModel"/>
+
+         @if(emailField.invalid && nombreField.touched){
+            <div class="invalido">
+                El email es incorrecto, hazlo bien.
+            </div>
+        }
+
     </p>
 
     <p>
         <label for="edad">Edad:</label><br>
         <input type="number" id="edad" name="edad" [(ngModel)]="edad" 
-         min="18" max="100"/>
+         min="18" max="100" #edadField="ngModel"/>
+
+        @if(edadField.invalid && edadField.touched){
+            <div class="invalido">
+               Tu edad es incorrecta    
+            </div>
+        }
+
     </p>
 
     <p>
