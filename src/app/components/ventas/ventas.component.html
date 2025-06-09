@@ -1,0 +1,12 @@
+<h1>Directivas en Angular</h1>
+<app-pelicula></app-pelicula>
+
+<h2 [ngClass]="colorear ? 'resaltar' : 'destacarMenos' ">Soy Felipe Palomino</h2>
+<h2 [ngStyle]="mostrar == 'si' ?
+                                {'background-color': 'yellow' } : 
+                                {'background-color': 'gray' }">
+                                Soy Omar Palomino</h2>
+
+  <p [ngStyle]="misEstilos">
+    Caja de Prueba
+  </p>                              
