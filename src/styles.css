@@ -33,3 +33,8 @@
     background-color: yellow;
     color: black;
 }
+
+.invalido{
+    font-weight: bold;
+    color: red;
+}
